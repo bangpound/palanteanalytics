@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Palante Analytics feature.
+ */
+
+include_once 'palanteanalytics.features.inc';

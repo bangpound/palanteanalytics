@@ -1,0 +1,10 @@
+name = Palante Analytics
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = google_analytics_reports
+dependencies[] = service_links_analytics
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:1
+features[page_manager_pages][] = metrics
