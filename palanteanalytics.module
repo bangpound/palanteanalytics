@@ -10,7 +10,7 @@ include_once 'palanteanalytics.features.inc';
  * Implements hook_ctools_plugin_directory().
  */
 function palanteanalytics_ctools_plugin_directory($owner, $plugin_type) {
-  if ($owner == 'ctools' && $plugin_type == 'content_types') {
-    return 'plugins/content_types';
+  if ($owner == 'ctools' && ($plugin_type == 'content_types' || $plugin_type == 'relationships')) {
+    return 'plugins/'. $plugin_type;
   }
 }

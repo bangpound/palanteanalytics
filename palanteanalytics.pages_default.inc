@@ -87,10 +87,18 @@ function palanteanalytics_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'URI from entity',
+        'keyword' => 'uri',
+        'name' => 'uri_from_entity',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
   );
   $display = new panels_display();
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'sanderson_flipped';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style' => 'naked',
@@ -101,15 +109,92 @@ function palanteanalytics_default_page_manager_pages() {
       'right' => NULL,
       'top' => NULL,
       'bottom' => NULL,
+      'column1' => NULL,
+      'column2' => NULL,
+      'column3' => NULL,
+      'secondarycolumn1' => NULL,
+      'secondarycolumn2' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = 'Merics';
+  $display->title = 'Metrics';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
-    $pane->panel = 'left';
+    $pane->panel = 'column1';
+    $pane->type = 'token';
+    $pane->subtype = 'node:last-view';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'sanitize' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-1'] = $pane;
+    $display->panels['column1'][0] = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
+    $pane->panel = 'column2';
+    $pane->type = 'token';
+    $pane->subtype = 'node:day-count';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'sanitize' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['column2'][0] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
+    $pane->panel = 'column3';
+    $pane->type = 'token';
+    $pane->subtype = 'node:total-count';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'sanitize' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['column3'][0] = 'new-3';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
+    $pane->panel = 'secondarycolumn1';
     $pane->type = 'views_panes';
     $pane->subtype = 'metrics-panel_pane_1';
     $pane->shown = TRUE;
@@ -135,67 +220,27 @@ function palanteanalytics_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $display->content['new-4'] = $pane;
+    $display->panels['secondarycolumn1'][0] = 'new-4';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
-    $pane->panel = 'right';
-    $pane->type = 'detail';
-    $pane->subtype = 'detail';
+    $pane->pid = 'new-5';
+    $pane->panel = 'secondarycolumn1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'social_visits-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Google Analytics',
-      'context' => 'argument_entity_id:node_1',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['right'][0] = 'new-2';
-    $pane = new stdClass();
-    $pane->pid = 'new-3';
-    $pane->panel = 'top';
-    $pane->type = 'token';
-    $pane->subtype = 'node:last-view';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'sanitize' => 1,
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['top'][0] = 'new-3';
-    $pane = new stdClass();
-    $pane->pid = 'new-4';
-    $pane->panel = 'top';
-    $pane->type = 'token';
-    $pane->subtype = 'node:total-count';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'sanitize' => 1,
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'arguments' => array(
+        'pagePath' => '%node:url:path',
+      ),
+      'view_mode' => NULL,
+      'comments' => NULL,
+      'links' => NULL,
+      'widget_title' => '',
+      'items_per_page' => NULL,
+      'context' => array(
+        0 => 'relationship_uri_from_entity_1',
+      ),
     );
     $pane->cache = array();
     $pane->style = array(
@@ -206,19 +251,18 @@ function palanteanalytics_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['top'][1] = 'new-4';
+    $display->content['new-5'] = $pane;
+    $display->panels['secondarycolumn1'][1] = 'new-5';
     $pane = new stdClass();
-    $pane->pid = 'new-5';
-    $pane->panel = 'top';
-    $pane->type = 'token';
-    $pane->subtype = 'node:day-count';
+    $pane->pid = 'new-6';
+    $pane->panel = 'secondarycolumn2';
+    $pane->type = 'google_analytics_detail';
+    $pane->subtype = 'google_analytics_detail';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'sanitize' => 1,
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
+      'context' => 'relationship_uri_from_entity_1',
+      'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
@@ -228,12 +272,12 @@ function palanteanalytics_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['top'][2] = 'new-5';
+    $display->content['new-6'] = $pane;
+    $display->panels['secondarycolumn2'][0] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['metrics'] = $page;

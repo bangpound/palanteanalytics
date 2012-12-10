@@ -5,18 +5,18 @@
  * by the system that includes this file.
  */
 $plugin = array(
-  'title' => t('Detail'),
+  'title' => t('Google Analytics detail'),
+  'category' => t('Analytics'),
   'single' => TRUE,
-  'required context' => new ctools_context_required(t('Entity'), 'entity'),
+  'required context' => new ctools_context_required(t('String'), 'string'),
 );
 
 /**
  * Output function for the 'block' content type. Outputs a block
  * based on the module and delta supplied in the configuration.
  */
-function palanteanalytics_detail_content_type_render($subtype, $conf, $panel_args, $context) {
-  $uri = entity_uri('node', $context->data);
-  $path = url($uri['path'], $uri['options']);
+function palanteanalytics_google_analytics_detail_content_type_render($subtype, $conf, $panel_args, $context) {
+  $path = '/'. $context->data;
 
   module_load_include('inc', 'google_analytics_reports', 'google_analytics_reports.pages');
 
@@ -40,7 +40,7 @@ function palanteanalytics_detail_content_type_render($subtype, $conf, $panel_arg
 /**
  * Empty form so we can have the default override title.
  */
-function palanteanalytics_detail_content_type_edit_form($form, &$form_state) {
+function palanteanalytics_google_analytics_detail_content_type_edit_form($form, &$form_state) {
   // Does nothing!
   return $form;
 }
